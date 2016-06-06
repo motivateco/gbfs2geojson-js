@@ -4,7 +4,7 @@
   "description": "Convert GBFS to GeoJSON.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test"
   },
   "repository": {
     "type": "git",
@@ -19,18 +19,28 @@
     "json"
   ],
   "author": "Motivate International",
-  "contributors": [{
-    "name" : "Ganesh Ravichandran",
-    "email" : "ganeshravichandran@motivateco.com",
-    "url" : "https://github.com/TheBatmanofButler"
-  }, {
-    "name" : "Ganesh Ravichandran",
-    "email" : "andrewfischer@motivateco.com",
-    "url" : "http://andrewfis.ch/"
-  }],
+  "contributors": [
+    {
+      "name": "Ganesh Ravichandran",
+      "email": "ganeshravichandran@motivateco.com",
+      "url": "https://github.com/TheBatmanofButler"
+    },
+    {
+      "name": "Ganesh Ravichandran",
+      "email": "andrewfischer@motivateco.com",
+      "url": "http://andrewfis.ch/"
+    }
+  ],
   "license": "CC-BY-3.0",
   "bugs": {
     "url": "https://github.com/motivateco/gbfs2geojson-js/issues"
   },
-  "homepage": "https://github.com/motivateco/gbfs2geojson-js#readme"
+  "homepage": "https://github.com/motivateco/gbfs2geojson-js#readme",
+  "dependencies": {
+    "domino": "^1.0.25",
+    "zepto-node": "^1.0.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0"
+  }
 }

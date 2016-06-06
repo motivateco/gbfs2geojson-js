@@ -1,0 +1,36 @@
+{
+  "name": "gbfs2geojson",
+  "version": "1.0.0",
+  "description": "Convert GBFS to GeoJSON.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/motivateco/gbfs2geojson-js.git"
+  },
+  "keywords": [
+    "gbfs",
+    "bike",
+    "bicycle",
+    "bikeshare",
+    "geojson",
+    "json"
+  ],
+  "author": "Motivate International",
+  "contributors": [{
+    "name" : "Ganesh Ravichandran",
+    "email" : "ganeshravichandran@motivateco.com",
+    "url" : "https://github.com/TheBatmanofButler"
+  }, {
+    "name" : "Ganesh Ravichandran",
+    "email" : "andrewfischer@motivateco.com",
+    "url" : "http://andrewfis.ch/"
+  }],
+  "license": "CC-BY-3.0",
+  "bugs": {
+    "url": "https://github.com/motivateco/gbfs2geojson-js/issues"
+  },
+  "homepage": "https://github.com/motivateco/gbfs2geojson-js#readme"
+}

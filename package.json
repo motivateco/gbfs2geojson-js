@@ -38,9 +38,18 @@
   "homepage": "https://github.com/motivateco/gbfs2geojson-js#readme",
   "dependencies": {
     "domino": "^1.0.25",
+    "zepto": "^1.0.1",
     "zepto-node": "^1.0.0"
   },
   "devDependencies": {
-    "chai": "^3.5.0"
+    "chai": "^3.5.0",
+    "fs": "0.0.2",
+    "geojson-validation": "^0.1.6",
+    "jade": "^1.11.0",
+    "jsdom": "^9.2.1",
+    "mocha": "^2.5.3",
+    "mocha-jsdom": "^1.1.0",
+    "nodejs-dom": "0.0.2",
+    "path": "^0.12.7"
   }
 }

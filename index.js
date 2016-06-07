@@ -1,17 +1,11 @@
-var domino = require('domino');
-var Zepto = require('zepto-node');
-var window = domino.createWindow();
-var $ = Zepto(window);
-
-var gbfsParser = function(statusURL, alertURL, infoURL) {
+var parseGBFS = function(statusURL, alertURL, infoURL) {
   var json = {
     type: "FeatureCollection",
     features: []
   }
   // list of stations indexed by station_id, organized like the JSON feature object
   var featureObj = {};
-  
-    $.getJSON(statusURL, function(data, statusText) {
+    $.ajax(statusURL, function(data, statusText) {
       json1 = false;
       
       var stations = data.data.stations;
@@ -108,12 +102,13 @@ var gbfsParser = function(statusURL, alertURL, infoURL) {
     for (obj in featureObj) {
       json.features.push(obj)
     }
+    console.log(JSON.stringify(json));
     return json;
   });
 }
 
 module.exports = {
-  gbfs2geojson: function(statusURL, alertURL, infoURL){
-    gbfs2geojson(statusURL, alertURL, infoURL)
+  parseGBFS: function(statusURL, alertURL, infoURL){
+    parseGBFS(statusURL, alertURL, infoURL)
   },
 }

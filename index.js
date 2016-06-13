@@ -4,7 +4,7 @@ var parseGBFS = function(statusURL, alertURL, infoURL) {
     features: []
   }
   // list of stations indexed by station_id, organized like the JSON feature object
-  var featureObj = {};
+  var feature = {};
     $.ajax(statusURL, function(data, statusText) {
       json1 = false;
       
@@ -12,13 +12,13 @@ var parseGBFS = function(statusURL, alertURL, infoURL) {
       
       for (station in stations) {
         
-        if (!featureObj[stations[station].station_id]) {
-          featureObj[stations[station].station_id]={
+        if (!feature[stations[station].station_id]) {
+          feature[stations[station].station_id]={
               properties: {}
             }
         };
         
-        featureObj[stations[station].station_id].properties = $.extend(featureObj[stations[station].station_id].properties, stations[station]);
+        feature[stations[station].station_id].properties = $.extend(feature[stations[station].station_id].properties, stations[station]);
       }
       
       json1 = true;
@@ -32,13 +32,13 @@ var parseGBFS = function(statusURL, alertURL, infoURL) {
         var alertStations = alerts[alert].station_ids;
         for (station in alertStations) {
           
-          if (!featureObj[alertStations[station]]) {
-            featureObj[alertStations[station]]={
+          if (!feature[alertStations[station]]) {
+            feature[alertStations[station]]={
               properties: {}
             }
           };
           
-          featureObj[alertStations[station]].properties = $.extend(featureObj[alertStations[station]].properties, alerts[alert]);
+          feature[alertStations[station]].properties = $.extend(feature[alertStations[station]].properties, alerts[alert]);
         }
       }
       json2 = true;
@@ -50,15 +50,15 @@ var parseGBFS = function(statusURL, alertURL, infoURL) {
       var stations = data.data.stations;
       for (station in stations) {
         
-        if (!featureObj[stations[station].station_id]) {
-          featureObj[stations[station].station_id]={
+        if (!feature[stations[station].station_id]) {
+          feature[stations[station].station_id]={
             properties: {}
           }
         };
         
-        featureObj[stations[station].station_id].properties = $.extend(featureObj[stations[station].station_id].properties, stations[station]);
-        featureObj[stations[station].station_id].type = "Feature";
-        featureObj[stations[station].station_id].geometry = {
+        feature[stations[station].station_id].properties = $.extend(feature[stations[station].station_id].properties, stations[station]);
+        feature[stations[station].station_id].type = "Feature";
+        feature[stations[station].station_id].geometry = {
           type: 'Point',
           coordinates: [
             stations[station].lat,
@@ -75,17 +75,17 @@ var parseGBFS = function(statusURL, alertURL, infoURL) {
     for (station in stations) {
       
       // If this is the first function to execute, create the object for the station
-      if (!featureObj[stations[station].station_id]) {
-        featureObj[stations[station].station_id] = {
+      if (!feature[stations[station].station_id]) {
+        feature[stations[station].station_id] = {
           properties: {}
         }
       };
       
-      featureObj[stations[station].station_id].properties = $.extend(featureObj[stations[station].station_id].properties, stations[station]);
+      feature[stations[station].station_id].properties = $.extend(feature[stations[station].station_id].properties, stations[station]);
       
       // Also, add any additional geoJSON required information.
-      featureObj[stations[station].station_id].type = "Feature";
-      featureObj[stations[station].station_id].geometry = {
+      feature[stations[station].station_id].type = "Feature";
+      feature[stations[station].station_id].geometry = {
         type: 'Point',
         coordinates: [
           stations[station].lat,
@@ -99,7 +99,7 @@ var parseGBFS = function(statusURL, alertURL, infoURL) {
   $(document).on("ajaxStop", function() {
     // remove any pins on the pin layer
 
-    for (obj in featureObj) {
+    for (obj in feature) {
       json.features.push(obj)
     }
     console.log(JSON.stringify(json));

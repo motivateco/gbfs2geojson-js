@@ -1,59 +1,48 @@
 
-var assert = require('chai').assert;
-var geoValidate = require("geojson-validation");
-var GBFS2GeoJson = require("../index.js")
-var jsdom = require('mocha-jsdom')
+describe("global.js", function () {
 
-if (typeof process === 'object') {
-  // Initialize node environment
-  global.expect = require('chai').expect
-  require('mocha-jsdom')()
-} else {
-  window.expect = window.chai.expect
-  window.require = function () { /* noop */ }
-}
+  it("Mapbox instantiated", function() {
+    expect(L.mapbox.accessToken).to.not.equal(null);;
+  });
 
-describe('mocha tests', function () {
- 
-  var $
- 
-  before(function () {
-    $ = require('zepto')
-  })
- 
-  it('works', function () {
-    document.body.innerHTML = '<div>hola</div>'
-    expect($("div").html()).eql('hola')
-  })
- 
+  it("All divIcons instantiated", function () {
+    expect(valetPin).to.not.equal(null);
+    expect(greenPin).to.not.equal(null);
+    expect(yellowPin).to.not.equal(null);
+    expect(redPin).to.not.equal(null);
+    expect(greyPin).to.not.equal(null);
+    expect(greenDot).to.not.equal(null);
+    expect(yellowDot).to.not.equal(null);
+    expect(redDot).to.not.equal(null);
+    expect(greyDot).to.not.equal(null);
+  });
+
+});
+
+// describe("geolocation.js") can't test without mapbox event
+
+describe("mapboxInit.js", function() {
+
+  it("sessionStorage saved", function() {
+    expect(sessionStorage.lat).to.not.equal(null);
+    expect(sessionStorage.lon).to.not.equal(null);
+    expect(sessionStorage.zoom).to.not.equal(null);
+  });
+
+});
+
+describe("mapping.js", function() {
+  var feature = {};
+
+  it("gbfsMapboxParser", function() {
+    expect(getStationStatus(feature, 'http://api-core.citibikenyc.com/gbfs/en/station_status.json')).to.equal(true);
+    expect(getSystemAlerts(feature, 'http://api-core.citibikenyc.com/gbfs/en/system_alerts.json')).to.equal(true);
+    expect(getStationInformation(feature, 'http://api-core.citibikenyc.com/gbfs/en/station_information.json')).to.equal(true);
+  });
 })
 
-  
-  // // Setup a jsdom env and globally expose window along with other libraries
-  // jsdom.env({
-  //   html: "<html><body></body></html>",
-  //   src: ['https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js'],
-  //   // function (err, window) {
-  //     // console.log("contents of a.the-link:", window.$("a.the-link").text());
-  //     // describe('GBFS2GeoJson Tests', function() {  
-  //     //   describe('CitiBike Test', function () {
-  //     //     it('should return valid geojson', function () {
-  //     //       console.log(JSON.stringify(GBFS2GeoJson.parseGBFS('https://gbfs.citibikenyc.com/gbfs/en/station_status.json','https://gbfs.citibikenyc.com/gbfs/en/system_alerts.json','https://gbfs.citibikenyc.com/gbfs/en/station_information.json')));
-  //     //       
-  //     //       assert.equal(-1, [1,2,3].indexOf(5));
-  //     //       assert.equal(-1, [1,2,3].indexOf(0));
-  //     //     });
-  //     //   });
-  //     // });
-  //   // },
-  //   done: function (window) {
-  //     window.$  = zepto;
-  //     console.log("HN Links");
-  //     // $("td.title:not(:last) a").each(function() {
-  //     //   console.log(" -", $(this).text());
-  //     // });
-  //   }
-  // });  
-
-
-
+describe('Compare Numbers', function() {
+  it('1 should equal 1', function() {
+    expect(1).to.equal(1);
+  });
+});

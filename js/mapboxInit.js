@@ -36,7 +36,7 @@ map.on("moveend", function() {
   sessionStorage.setItem("lat", lat);
   sessionStorage.setItem("lon", lon);
   sessionStorage.setItem("zoom", zoom);
-
+ 
   // updating URL query param
   updateQueryStringParam("lat", lat);
   updateQueryStringParam("lon", lon);

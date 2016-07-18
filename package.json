@@ -1,55 +1,19 @@
 {
-  "name": "gbfs2geojson",
+  "name": "gbfs2geojson-js",
   "version": "1.0.0",
-  "description": "Convert GBFS to GeoJSON.",
-  "main": "index.js",
+  "description": "GBFS to geoJSON converter for Motivate International",
+  "main": "gbfs2geoJSON.js",
   "scripts": {
-    "test": "mocha test"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/motivateco/gbfs2geojson-js.git"
   },
-  "keywords": [
-    "gbfs",
-    "bike",
-    "bicycle",
-    "bikeshare",
-    "geojson",
-    "json"
-  ],
-  "author": "Motivate International",
-  "contributors": [
-    {
-      "name": "Ganesh Ravichandran",
-      "email": "ganeshravichandran@motivateco.com",
-      "url": "https://github.com/TheBatmanofButler"
-    },
-    {
-      "name": "Ganesh Ravichandran",
-      "email": "andrewfischer@motivateco.com",
-      "url": "http://andrewfis.ch/"
-    }
-  ],
-  "license": "CC-BY-3.0",
+  "author": "",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/motivateco/gbfs2geojson-js/issues"
   },
-  "homepage": "https://github.com/motivateco/gbfs2geojson-js#readme",
-  "dependencies": {
-    "domino": "^1.0.25",
-    "zepto": "^1.0.1",
-    "zepto-node": "^1.0.0"
-  },
-  "devDependencies": {
-    "chai": "^3.5.0",
-    "fs": "0.0.2",
-    "geojson-validation": "^0.1.6",
-    "jade": "^1.11.0",
-    "jsdom": "^9.2.1",
-    "mocha": "^2.5.3",
-    "mocha-jsdom": "^1.1.0",
-    "nodejs-dom": "0.0.2",
-    "path": "^0.12.7"
-  }
+  "homepage": "https://github.com/motivateco/gbfs2geojson-js#readme"
 }

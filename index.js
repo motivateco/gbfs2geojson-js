@@ -104,29 +104,53 @@ module.exports = {
     });
   },
 
-  getAllData: function(data, callback) {
+  getAllData: function(jsonURL, data, callback) {
 
-    module.exports.getStationInformation(data, 'http://api-core.citibikenyc.com/gbfs/en/station_information.json',
+    request({
+          url: jsonURL,
+          json: true
+        }, function(error, response, data) {
+
+          var feeds = data.data.en.feeds;
+
+          for (var feed in feeds) {
+            
+            if (feeds[feed].name == "station_information") {
+              var stationInformationUrl = feeds[feed].url;
+            }
+            
+            if (feeds[feed].name == "station_status") {
+              var stationStatusUrl = feeds[feed].url;
+            }
+            
+            if (feeds[feed].name == "system_alerts") {
+              var systemAlertsUrl = feeds[feed].url;
+            }
+          }
+
+          module.exports.getStationInformation(data, stationInformationUrl,
+            function(data) {
+
+              module.exports.getStationStatus(data, stationStatusUrl,
+                function(data) {
+
+                  module.exports.getSystemAlerts(data, systemAlertsUrl,
+                    function(data) {
+
+                      callback(data);
+                    });
+                });
+            });
+
+        });
+  },
+
+  getStatusAndAlerts: function(stationStatusUrl, systemAlertsUrl, data, callback) {
+
+    module.exports.getStationStatus(data, stationStatusUrl,
       function(data) {
 
-        module.exports.getStationStatus(data, 'http://api-core.citibikenyc.com/gbfs/en/station_status.json',
-          function(data) {
-
-            module.exports.getSystemAlerts(data, 'http://api-core.citibikenyc.com/gbfs/en/system_alerts.json',
-              function(data) {
-
-                callback(data);
-              });
-          });
-      });
-  }
-
-  getStatusAndAlerts: function(data, callback) {
-
-    module.exports.getStationStatus(data, 'http://api-core.citibikenyc.com/gbfs/en/station_status.json',
-      function(data) {
-
-        module.exports.getSystemAlerts(data, 'http://api-core.citibikenyc.com/gbfs/en/system_alerts.json',
+        module.exports.getSystemAlerts(data, systemAlertsUrl,
           function(data) {
 
             callback(data);

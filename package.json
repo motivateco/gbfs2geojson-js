@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/motivateco/gbfs2geojson-js.git"
   },
-  "author": "",
+  "author": "Ganesh Ravichandran and Andrew Fischer",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/motivateco/gbfs2geojson-js/issues"

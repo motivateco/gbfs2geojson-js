@@ -1,6 +1,6 @@
 {
   "name": "gbfs2geojson-js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "GBFS to geoJSON converter for Motivate International",
   "main": "gbfs2geoJSON.js",
   "scripts": {

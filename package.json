@@ -1,6 +1,6 @@
 {
   "name": "gbfs2geojson-js",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "GBFS to geoJSON converter for Motivate International",
   "main": "gbfs2geoJSON.js",
   "scripts": {
@@ -16,7 +16,7 @@
     "url": "https://github.com/motivateco/gbfs2geojson-js/issues"
   },
   "homepage": "https://github.com/motivateco/gbfs2geojson-js#readme",
-  "dependencies" : {
-    "request" : ">=2.36.0"
+  "dependencies": {
+    "request": ">=2.36.0"
   }
 }

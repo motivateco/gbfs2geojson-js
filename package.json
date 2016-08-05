@@ -2,7 +2,6 @@
   "name": "gbfs2geojson-js",
   "version": "1.0.3",
   "description": "GBFS to geoJSON converter for Motivate International",
-  "main": "gbfs2geoJSON.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/motivateco/gbfs2geojson-js/issues"
   },
-  "homepage": "https://github.com/motivateco/gbfs2geojson-js#readme"
+  "homepage": "https://github.com/motivateco/gbfs2geojson-js#readme",
+  "dependencies" : {
+    "request" : ">=2.36.0"
+  }
 }

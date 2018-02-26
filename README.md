@@ -38,3 +38,8 @@ gbfs2geoJSON.getStatusAndAlerts(stationStatusUrl, systemAlertsUrl, data, functio
   console.log(data);
 });
 ```
+
+## License
+
+MIT © [8D Technologies](https://github.com/8DTechnologies)
+
